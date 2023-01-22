@@ -3,27 +3,39 @@ import random
 rock = 'Rock'
 paper = 'Paper'
 scissors = 'Scissors'
-player_move = input("Choose [r]ock, [p]aper or [s]cissors: ")
-if player_move == "r":
+spock = 'Spock'
+lizard = 'Lizard'
+player_move = input("Choose [R] - Rock, [P] - Paper, [S] - Scissors, [SP] - Spock or [L] - Lizard: ")
+if player_move == "R":
     player_move = rock
-elif player_move == "p":
+elif player_move == "P":
     player_move = paper
-elif player_move == "s":
+elif player_move == "S":
     player_move = scissors
+elif player_move == "SP":
+    player_move = spock
+elif player_move == "L":
+    player_move = lizard
 else:
-    raise SystemExit("Invalid Input. Try again...")
-computer_random_number = random.randint(1, 3)
+    raise SystemExit("Input not yet added. Try again...")
+computer_random_number = random.randint(1, 5)
 computer_move = ""
 if computer_random_number == 1:
     computer_move = rock
-elif computer_random_number == 2:
+if computer_random_number == 2:
     computer_move = paper
-elif computer_random_number == 3:
+if computer_random_number == 3:
     computer_move = scissors
+if computer_random_number == 4:
+    computer_move = spock
+if computer_random_number == 5:
+    computer_move = lizard
 print(f'The computer chose {computer_move}.')
-if (player_move == rock and computer_move == scissors) or \
-        (player_move == paper and computer_move == rock) or \
-        (player_move == scissors and computer_move == paper):
+if (player_move == rock and (computer_move == scissors or computer_move == lizard)) or \
+        (player_move == paper and (computer_move == rock or computer_move == spock)) or \
+        (player_move == scissors and (computer_move == paper or computer_move == lizard)) or \
+        (player_move == spock and (computer_move == rock or computer_move == scissors)) or \
+        (player_move == lizard and (computer_move == paper or computer_move == spock)):
     print("You win!")
 elif player_move == computer_move:
     print("Draw!")
