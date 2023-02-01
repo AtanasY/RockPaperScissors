@@ -14,14 +14,12 @@ def play_game(p1, p2):
 
 
 while True:
-    print("Welcome!")
-    Player = input("Rock, Paper, Scissors, Spock, Lizard: ")
+    Player = input("Welcome!\nRock, Paper, Scissors, Spock, Lizard: ")
     if Player not in options:
         print("Invalid Input... Try Again!")
         continue
-    print(f'Player Chose: {Player}')
-    Computer = random.choice(['Rock', 'Paper', 'Scissors', 'Spock', 'Lizard'])
-    print(f"Computer chose: {Computer}")
+    Computer = random.choice(options)
+    print(f"Player Chose: {Player}\nComputer chose: {Computer}")
     play_game(Player, Computer)
     restart = input("Play Again? (Y/N): ")
     if restart.lower() == 'n':
