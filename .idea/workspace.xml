@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52874c2a-61fa-4bb6-998f-12f6d121ba04" name="Changes" comment="Added game-mode choice and score tracking." />
+    <list default="true" id="52874c2a-61fa-4bb6-998f-12f6d121ba04" name="Changes" comment="Added game-mode choice and score tracking.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RockPaperScissors.py" beforeDir="false" afterPath="$PROJECT_DIR$/RockPaperScissors.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

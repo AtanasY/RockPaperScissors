@@ -15,15 +15,12 @@ def play_game_rps_sl(p1, p2):
         return 'Computer'
 
 
-choice = ''
+game_mode = ''
 score = {'Player': 0, 'Computer': 0, 'Ties': 0}
 while True:
     options = {'R': 'Rock', 'P': 'Paper', 'S': 'Scissors', 'K': 'Spock', 'L': 'Lizard'}
-    if choice == '':
+    if game_mode == '':
         game_mode = input("Welcome!\n Choose game mode - Classic(C) or Big Bang Version(BB): ")
-        choice = game_mode
-    else:
-        game_mode = choice
     if not game_mode == "C" and not game_mode == "BB":
         print("Invalid Input... Try Again!")
         continue
