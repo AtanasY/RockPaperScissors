@@ -1,26 +1,45 @@
 import random
-options = ['Rock', 'Paper', 'Scissors', 'Spock', 'Lizard']
 
 
-def play_game(p1, p2):
-    beats = {'Rock': ['Scissors', 'Lizard'], 'Paper': ['Rock', 'Spock'], 'Scissors': ['Paper', 'Lizard'],
-             'Spock': ['Scissors', 'Rock'], 'Lizard': ['Spock', 'Paper']}
+def play_game_rps_sl(p1, p2):
+    beats = {'R': ['S', 'L'], 'P': ['R', 'K'], 'S': ['P', 'L'],
+             'K': ['S', 'R'], 'L': ['K', 'P']}
     if p1 == p2:
         print("It's a tie!")
+        return 'Ties'
     elif p2 in beats[p1]:
         print("Player wins!")
+        return 'Player'
     else:
         print("Computer wins!")
+        return 'Computer'
 
 
+choice = ''
+score = {'Player': 0, 'Computer': 0, 'Ties': 0}
 while True:
-    Player = input("Welcome!\nRock, Paper, Scissors, Spock, Lizard: ")
+    options = {'R': 'Rock', 'P': 'Paper', 'S': 'Scissors', 'K': 'Spock', 'L': 'Lizard'}
+    if choice == '':
+        game_mode = input("Welcome!\n Choose game mode - Classic(C) or Big Bang Version(BB): ")
+        choice = game_mode
+    else:
+        game_mode = choice
+    if not game_mode == "C" and not game_mode == "BB":
+        print("Invalid Input... Try Again!")
+        continue
+    if game_mode == "BB":
+        Player = input("Rock(R), Paper(P), Scissors(S), Spock(K), Lizard(L): ")
+    else:
+        options.pop("K"), options.pop("L")
+        Player = input("Rock(R), Paper(P), Scissors(S): ")
     if Player not in options:
         print("Invalid Input... Try Again!")
         continue
-    Computer = random.choice(options)
-    print(f"Player Chose: {Player}\nComputer chose: {Computer}")
-    play_game(Player, Computer)
+    Computer = random.choice(list(options.keys()))
+    print(f"Player Chose: {options[Player]}\nComputer chose: {options[Computer]}")
+    result = play_game_rps_sl(Player, Computer)
+    score[result] += 1
+    print(', '.join("{}: {}".format(k, v) for k, v in score.items()))
     restart = input("Play Again? (Y/N): ")
     if restart.lower() == 'n':
         break
